@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+
+body {
+	font-family:default-ui;
+}
+
+.container {
+	text-align:right;
+	margin-left:60px;
+	margin-right:90px;
+	color: white;
+	position:relative;
+	float:right;
+	margin-top: -32px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  top: 100%;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  top:100%;
+}
+
+.topnav a:hover {
+  background-color: #778899;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #1E90FF;
+  color: white;
+}
+.topright {
+  position: absolute;
+  top: 4px;
+  right: -200px;
+  font-size: 5px;
+}
+
+sales {
+	text-align:left;
+	margin-top:150px;
+	margin-right:50px;
+	margin-left:440x;
+	padding-left:90px;
+	color:white;
+}
+input[type=text], input[type=password] , input[type=number] , input[type=date], input[type=email]{
+  width: 30%;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.registerbtn {
+  background-color: #4169E1;
+  color: white;
+  padding: 15px 10px;
+  margin: 18px;
+  border-radius:25px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+  font-size: 20px;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+.bg-color {
+  padding: 8px;
+  background-color: green;
+  /*background: #344761;*/
+  background:   linear-gradient(188deg, rgba(2,0,36,1) 0%, rgba(182,180,254,1) 0%, rgba(183,203,241,1) 0%, rgba(119,158,209,1) 11%, rgba(144,148,203,1) 16%,
+   rgba(63,166,211,1) 47%, rgba(22,248,220,0.9619384079836728) 83%, rgba(17,212,250,1) 100%, rgba(0,255,226,1) 100%, rgba(0,212,255,1) 100%);
+  height: 673px;
+
+}
+.topbw {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 1px;
+}
+.selectWrapper{
+border-radius:25px;
+display:inline-block;
+  overflow:hidden;
+  background:#f1f1f1;
+  border:1px solid #cccccc;
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+  <a href="/maps">Map</a>
+    <a href="/fare">Fare</a>
+    <a href="/aboutus">About us</a>
+    <a href="/complaint">Complaint</a>
+  <a href="/signup/">SignUp</a>
+  <a><div class="topbw"><img src="https://i.ibb.co/SsDM6pc/securepark.png" width="180" height="47"></div></a>
+</div>
+<div class="bg-color">
+<h1 style="color:white; font-size:62px; text-align:center;color:black;font-family:cursive; margin-top:-2px;">Contact Us</h1>
+    <hr>
+<div class="sales">
+ <div class="container">
+  <h2 style="text-align:center; font-size:40px;color:black;font-family:cursive;">Do you have any Questions?</h2>
+  <h4>Fill out our contact form and we will contact you as soon as possible</h4>
+  <form action="/contactus/" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+   <input type="text" class="form-control" name="name" id="name" placeholder="Name" style="font-size:15px; height:40px; width:470px;"><br><br>
+  </div>
+  <div class="form-group">
+   <input type="email" class="form-control" name="email" id="email" placeholder="Email" style="font-size:15px; height:40px; width:470px;"><br><br>
+  </div>
+  <div class="form-group">
+   <input type="text" class="form-control" name="contactno" id="contactno" placeholder="Contact Number" style="font-size:15px; height:40px; width:470px;"><br><br>
+  </div>
+  <div class="form-group">
+   <div class="selectWrapper">
+   <textarea class="form-control" rows="3" cols="10" placeholder="Question" name="question" id="question" style="font-size:15px; height:40px; width:470px;"></textarea><br></div>
+  </div>
+  <button type="submit" class="registerbtn" style="margin-right:10px;">Submit</button>
+
+</form>
+ </div>
+<h1 style="color:white; font-size:40px;color:black;font-family:cursive;">Start a conversation.</h1>
+
+<h2 style="color:black;font-size:35px;">For Lost & Found queries</h2>
+<h4 style="color:white;font-size:22px;font-weight:15">lakshygupta99@gmail.com</h4>
+<hr style="margin-right:500px; float:center;">
+
+<h2 style="color:black;font-size:35px;">For general queries</h2>
+<h4 style="color:white;font-size:22px;font-weight:15">miglaniritik20@gmail.com</h4>
+<hr>
+
+<h3 style="color:black;font-size:40px;">Helpline 095-554-370-96</h3>
+</div>
+</div>
+</body>
+</html>

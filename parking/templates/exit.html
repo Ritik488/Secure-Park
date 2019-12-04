@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<Style>
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #1E90FF;
+  color: white;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 1px;
+}
+
+.bg-image {
+
+  background-image: url("https://i.ibb.co/1dhQKyD/exit1.png");
+  filter: blur(11px);
+  -webkit-filter: blur(8px);
+  height: 102%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-text {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+  border-radius:25px;
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 60%;
+  padding: 0px;
+  text-align: center;
+}
+.selectWrapper{
+  border-radius:25px;
+  display:inline-block;
+  overflow:hidden;
+
+  background-color:#C0C0C0;
+  border:1px solid #cccccc;
+}
+.selectBox{
+   border-radius:25px;
+
+  background-color:#C0C0C0;
+  width:140px;
+  height:40px;
+  border:0px;
+  outline:none;
+}
+.container {
+  padding: 0px;
+  background-color: white;
+  background-size: 1000px 500px, 700px 500px, 700px 500px;
+  background-position: 0 -200px, 300px -100px, 700px -200px;
+  height: 680px;
+}
+
+
+.registerbtn {
+  background-color: #1E90FF;
+  color: white;
+  border-radius: 25px;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: 2px solid #000000;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+  font-size: 20px;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+.toplg {
+  position: absolute;
+  top: 10px;
+  right: 260px;
+  font-size: 20px;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<div align="center">
+<div class="topnav">
+  <a class="active" href="http://127.0.0.1:8000">Home</a>
+  <a href="/maps/">Map</a>
+  <a href="/fare/">Fare</a>
+  <a href="/contactus/">Contact</a>
+  <a href="/aboutus/">About</a>
+  <a href="complaint/">Complaints</a>
+  <a href="http://127.0.0.1:8000/">Logout</a>
+  <a href="/entryexit/">EntryExit</a>
+    <a><div class="toplg">You are currently logged in</div></a>
+    <a><div class="topright"><img src="https://i.ibb.co/SsDM6pc/securepark.png" width="200" height="48"></div></a>
+</div>
+</div>
+<div class="bg-image"></div>
+<form method="POST">
+    {% csrf_token %}
+
+<div align="center">
+
+<div class="bg-text">
+<h1 style="text-align:center; font-size:55px; color:white; font-family:sans-serif;">VEHICLE DETAILS </h1>
+<hr>
+<h2 style="font-size:30px; color:white;">Vehicle Number: </h2>
+<input type="text" name="vehicleno" id="vehicleno" placeholder="Enter Vehicle Number" style="border-radius:10px; color: #696969;  background-color:#C0C0C0; width:380px; height:37px;"><br>
+
+<h2 style="font-size:35px; color:white;">Vehicle Type: </h2>
+<div class="selectWrapper">
+ <select class="selectBox" name="vehicle_type" id="vehicle_type" style="width: 380px; height:40px; background-color:#C0C0C0;">
+  <option value="type">Select Type of Vehicle</option>
+  <option value="two">Two Wheeler</option>
+  <option value="three">Three Wheeler</option>
+  <option value="four">Four Wheeler</option>
+</select><br>
+</div>
+
+<h2 style="font-size:30px; margin-left:30px; color:white;">Tag Number of vehicle: </h2>
+<input type="text" style="border-radius:10px; width:380px; height:37px; color: #696969;  background-color:#C0C0C0;" name="tagno" placeholder="Enter tag number" id="tagno">
+
+
+<br><hr>
+ <button type="reset" class="registerbtn">Reset Data</button>
+ <button type="submit" class="registerbtn">Get Details</button>
+
+ <div class="form-group">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+
+                    <div class="alert alert-success">{{ message }}</div>
+
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+
+</div>
+</div>
+
+
+</form>
+
+</div>
+</body>
+</html>

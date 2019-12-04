@@ -1,0 +1,143 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Details
+    </title>
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #778899;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #1E90FF;
+  color: white;
+}
+.topright {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 1px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  color:white;
+  font-size:40px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.bg-image {
+  background-image: url("https://images.pexels.com/photos/6517/parking-multi-storey-car-park.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 93%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-text {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.6);
+  font-weight: bold;
+  font-family: "Helvetica", Times, serif;
+  border: 3px solid #708090;
+  color: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,18), 0 6px 20px 0 rgba(0,0,0,0.30);
+}
+.toplg {
+  position: absolute;
+  top: 10px;
+  right: 260px;
+  font-size: 20px;
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="http://127.0.0.1:8000">Home</a>
+  <a href="/maps/">Map</a>
+    <a href="/fare/">Fare</a>
+  <a href="/contactus/">Contact us</a>
+    <a href="/aboutus/">About us</a>
+    <a href="/complaint/">Complaints</a>
+  <a href="http://127.0.0.1:8000">Logout</a>
+    <a href="/entryexit/">EntryExit</a>
+    <a><div class="toplg">You are currently logged in</div></a>
+    <a><div class="topright"><img src="https://i.ibb.co/SsDM6pc/securepark.png" width="210" height="40"></div></a>
+</div>
+<div class="bg-image"></div>
+<div class="bg-text">
+{% if obj %}
+<table align="center" style="padding:20px;">
+    <tr>
+        <td>Vehicle Number:</td><td>{{ obj.vehicleno }}</td>
+    </tr>
+    <tr>
+        <td>Vehicle Type:</td><td>{{ obj.vehicle_type }}</td>
+    </tr>
+    <tr>
+        <td>Total fare to be paid:</td><td>{{ obj.fare }}</td>
+    </tr>
+     <tr>
+        <td>Out-Time:</td><td>{{ obj.outtime }}</td>
+    </tr>
+    <tr>
+        <td>Tag Number:</td><td>{{ obj.tagno }}</td>
+    </tr>
+</table>
+</div>
+{% endif %}
+
+
+
+</body>
+
+</html>
+
+
+
+
+
